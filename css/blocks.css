@@ -17,4 +17,12 @@
   margin-top: -1px;
 }
 
+input[id="bpsys"] {
+  margin-bottom: 10px;
+}
+
 .panel-heading.weight { background-color: #ad78cc; }
+.panel-heading.heart { background-color: #d57272; }
+.panel-heading.food { background-color: #61ce5c; }
+.panel-heading.exercise { background-color: #d9bc6c; }
+.panel-heading.water { background-color: #59c2e6; }
