@@ -1,0 +1,27 @@
+.day-select {
+  position: relative;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.day-select h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.day-select h4 {
+  color: #888;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.day-select i.fa-chevron-left {
+  position: absolute;
+  top: 40%;
+  left: 20px;
+}
+
+.day-select i.fa-chevron-right {
+  position: absolute;
+  top: 40%;
+  right: 20px;
+}
