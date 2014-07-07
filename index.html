@@ -40,7 +40,7 @@
   </nav><!-- end navbar -->
 
 
-  <div class="container">
+  <div class="container" ng-controller="Main">
 
     <!-- Day Selector -->
     <div class="row day-select" ng-controller="DaySelect">
@@ -70,7 +70,8 @@
 
               <div class="form-group">
                 <label for="weight" class="col-sm-3 control-label">Weight:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-9" ng-if="!currentDay.weight">
+                  {{ currentDay.weight }}
                   <input type="text" class="form-control" id="weight" placeholder="Weight in lbs">
                 </div>
               </div>
