@@ -18,6 +18,7 @@
     "chartjs": "~0.2.0",
     "components-font-awesome": "~4.1.0",
     "firebase": "~1.0.17",
-    "firebase-simple-login": "~1.6.1"
+    "firebase-simple-login": "~1.6.1",
+    "ng-Fx": "~0.4.1"
   }
 }

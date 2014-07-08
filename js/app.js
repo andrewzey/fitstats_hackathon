@@ -1,4 +1,4 @@
-var app = angular.module('fitStats', ['controllers', 'factories']);
+var app = angular.module('fitStats', ['controllers', 'factories', 'ngAnimate', 'fx.animations']);
 
 app.controller('Main', function($rootScope){
 	//Dummy Data before populating firebase
