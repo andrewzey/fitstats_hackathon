@@ -1,7 +1,25 @@
 
-<h2>Login Page</h2>
+<div class="container">
+  <form class="form-signin" role="form">
+    <h2 class="form-signin-heading" ng-hide="createMode">Please Log In</h2>
+    <h2 class="form-signin-heading" ng-show="createMode">Create a New Account</h2>
+    <input type="email" class="form-control" placeholder="Email address" required autofocus ng-model="email">
+    <input type="password" class="form-control" placeholder="Password" required ng-model="pass">
+    <label ng-cloak ng-show="createMode">
+        <span>Confirm Password</span>
+        <input type="password" class="form-control" placeholder="Password" required ng-model="pass">
+    </label>
 
-<form>
+    <button class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-hide="createMode">Log In</button>
+    <button class="btn btn-lg btn-success btn-block" ng-click="createMode = true" ng-hide="createMode">Register</button>
+    <button class="btn btn-lg btn-primary btn-block" ng-cloak ng-show="createMode" ng-click="createAccount()">Create Account</button>
+    <button class="btn btn-lg btn-danger btn-block" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+
+    <p ng-show="err" class="error">{{err}}</p>
+  </form>
+</div>
+
+<!-- <form>
     <label>
         <span>email</span>
         <input type="text" ng-model="email" />
@@ -20,5 +38,4 @@
     <button ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
 
     <p ng-show="err" class="error">{{err}}</p>
-</form>
-
+</form> -->
