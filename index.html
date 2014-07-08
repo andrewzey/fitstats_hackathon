@@ -43,7 +43,7 @@
   <div class="container" ng-controller="Main">
 
     <!-- Day Selector -->
-    <div class="row day-select" ng-controller="DaySelect">
+    <div class="row day-select">
       <div class="col-md-offset-3 col-md-6">
         <i class="fa fa-chevron-left"></i>
         <h2>TODAY</h2>
@@ -58,34 +58,70 @@
 
         <!-- Weight Block -->
         <div class="panel panel-default">
-          <form class="form-horizontal" role="form">
 
-            <div class="panel-heading weight">WEIGHT
-              <div class="form-group control-buttons">
-                  <button type="submit" class="btn btn-default btn-xs">Save</button>
-              </div>
-            </div>
-
+            <div class="panel-heading weight">WEIGHT</div>
             <div class="panel-body">
 
-              <div class="form-group">
-                <label for="weight" class="col-sm-3 control-label">Weight:</label>
-                <div class="col-sm-9" ng-if="!currentDay.weight">
-                  {{ currentDay.weight }}
-                  <input type="text" class="form-control" id="weight" placeholder="Weight in lbs">
-                </div>
-              </div>
+              <!-- weight form -->
+              <form role="form" ng-controller="WeightController" ng-submit='submit()'>
+                <label for="weight">Weight:</label>
 
-              <div class="form-group">
-                <label for="bodyfat" class="col-sm-3 control-label">Body Fat:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="bodyfat" placeholder="Body Fat %">
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.weight }}<span class="suffix">lbs</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="weight" placeholder="Weight in lbs"  value="{{ currentDay.weight }}" ng-model="formData.weight">
+
+                  </div>
+                </div>
+
+                <div class="controls">
+                  <button type="submit" ng-if="inputMode && formData.weight"><i class="fa fa-floppy-o"></i></button>
+                  <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
+                </div>
+
+              </form>
+
+              <form role="form">
+                <label for="bodyfat">Body Fat:</label>
+                <input type="text" class="form-control" id="bodyfat" placeholder="Body Fat in %" ng-model="formData.bf">
+                <button type="submit" ng-if="formData.bf"><i class="fa fa-floppy-o"></i></button>
+              </form>
+
+            <!-- <form class="form-horizontal" role="form" ng-submit='submit()'>
+              <div class="form-group" style="line-height: 2em;">
+                <label for="weight" class="col-sm-4 control-label">Weight:</label>
+
+                <div class="col-sm-8" ng-if="!currentDay.weight">
+                  <input type="text" class="form-control" id="weight" placeholder="Weight in lbs" ng-model="formData.weight">
+                  <i class="fa fa-check"></i>
+                </div>
+
+                <div class="col-sm-8" ng-if="currentDay.weight">
+                  <span class="display">{{ currentDay.weight }}</span><span class="suffix">lbs</span>
+                  <i class="fa fa-pencil edit"></i>
+                  <i class="fa fa-trash-o delete"></i>
                 </div>
               </div>
+            </form> -->
+
+              <!-- <div class="form-group" style="line-height: 2em;">
+                <label for="bodyfat" class="col-sm-4 control-label">Body Fat:</label>
+
+                <div class="col-sm-8" ng-if="!currentDay.bf">
+                  <input type="text" class="form-control" id="bodyfat" placeholder="Body Fat %" ng-model="formData.bf">
+                </div>
+
+                <div class="col-sm-8" ng-if="currentDay.bf">
+                  <span class="display">{{ currentDay.bf }}</span><span class="suffix">%</span>
+                </div>
+              </div> -->
 
             </div>
 
-          </form>
+
         </div><!-- end weight block -->
 
         <!-- Heart Block -->
@@ -93,26 +129,26 @@
           <form class="form-horizontal" role="form">
 
             <div class="panel-heading heart">HEART
-              <div class="form-group control-buttons">
+              <!-- <div class="form-group control-buttons">
                   <button type="submit" class="btn btn-default btn-xs">Save</button>
-              </div>
+              </div> -->
             </div>
 
             <div class="panel-body">
 
               <div class="form-group">
-                <label for="hr" class="col-sm-3 control-label">Heart Rate:</label>
-                <div class="col-sm-9">
+                <label for="hr" class="col-sm-4 control-label">Resting HR:</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" id="hr" placeholder="Heart Rate (BPM)">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="bpsys" class="col-sm-3 control-label">Blood Pressue:</label>
-                <div class="col-sm-9">
+                <label for="bpsys" class="col-sm-4 control-label">Blood Pressure:</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" id="bpsys" placeholder="Systolic">
                 </div>
-                <div class="col-sm-offset-3 col-sm-9">
+                <div class="col-sm-offset-4 col-sm-8">
                   <input type="text" class="form-control" id="bpdias" placeholder="Diastolic">
                 </div>
               </div>
@@ -132,9 +168,9 @@
           <form class="form-horizontal" role="form">
 
             <div class="panel-heading food">FOOD
-              <div class="form-group control-buttons">
+              <!-- <div class="form-group control-buttons">
                   <button type="submit" class="btn btn-default btn-xs">Save</button>
-              </div>
+              </div> -->
             </div>
 
             <div class="panel-body">
