@@ -101,6 +101,9 @@
   padding-top: 0px;
 }
 
+.navbar-toggle {
+	z-index: 999;
+}
 .navbar-toggle .icon-bar {
   margin-top: 10px;
 }
