@@ -63,7 +63,7 @@
             <div class="panel-body">
 
               <!-- weight form -->
-              <form role="form" ng-controller="WeightController" ng-submit='submit()'>
+              <form role="form" ng-controller="WeightController" ng-submit='submit("weight")'>
                 <label for="weight">Weight:</label>
 
                 <div class="data-display-and-input">
@@ -73,7 +73,6 @@
 
                   <div class="input" ng-if="inputMode">
                     <input type="text" class="form-control" id="weight" placeholder="Weight in lbs" ng-model="formData.weight">
-
                   </div>
                 </div>
 
@@ -227,6 +226,8 @@
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/chartjs/Chart.min.js"></script>
-	<script src="app.js"></script>
+	<script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
 </body>
 </html>
