@@ -21,7 +21,7 @@
 <body ng-cloak>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavController">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,5 +70,19 @@
   <script src="js/firebase/service.changeEmail.js"></script>
   <script src="js/firebase/module.simpleLoginTools.js"></script>
   <script src="js/firebase/module.routeSecurity.js"></script>
+
+  <!-- <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="bower_components/ng-Fx/dist/ng-Fx.min.js"></script> -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/nvd3/nv.d3.js"></script>
+  <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+
+  <!-- Custom Controllers and Factories -->
+  <script src="js/user/controllers.js"></script>
+  <script src="js/user/factories.js"></script>
+
 </body>
 </html>

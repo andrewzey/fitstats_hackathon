@@ -1,9 +1,9 @@
 var app = angular.module('myApp', [
-	// 'controllers',
-	// 'factories',
+	'controllers',
+	'factories',
 	// 'ngAnimate',
 	// 'fx.animations',
-	// 'nvd3ChartDirectives',
+	'nvd3ChartDirectives',
 	'myApp.config',
 	'myApp.routes',
 	'myApp.filters',

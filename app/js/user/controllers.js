@@ -1,6 +1,12 @@
 angular.module('controllers', []);
 
-app.controller('Main', function($rootScope){
+app.controller('NavController', function($scope, loginService){
+  $scope.logout = function(){
+    loginService.logout();
+  };
+});
+
+app.controller('Main', function($rootScope, $scope){
   //Dummy Data before populating firebase
   $rootScope.currentDay = {};
   $rootScope.currentDay.date = new Date();
@@ -93,7 +99,7 @@ app.controller('BPController', function($rootScope, $scope, FormFunctions){
 
 });
 
-app.controller('FoodController', function($rootScope, $scope, FormFunctions){
+app.controller('FoodController', function($rootScope, $scope, $timeout, FormFunctions){
   $scope.inputMode = true;
 
   if ($rootScope.currentDay.calories && $rootScope.currentDay.protein && $rootScope.currentDay.carbs && $rootScope.currentDay.fat) {
@@ -157,5 +163,7 @@ app.controller('FoodController', function($rootScope, $scope, FormFunctions){
         };
     };
   };
-  $scope.chartUpdate();
+  $timeout(function(){
+    $scope.chartUpdate();
+  }, 500);
 });
