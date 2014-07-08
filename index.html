@@ -84,22 +84,22 @@
               </form><!-- end weight form -->
 
               <!-- body fat form -->
-              <form role="form" ng-controller="WeightController" ng-submit='submit()'>
-                <label for="weight">Weight:</label>
+              <form role="form" ng-controller="BFController" ng-submit='submit("bf")'>
+                <label for="bf">Body Fat:</label>
 
                 <div class="data-display-and-input">
                   <div class="display" ng-if="!inputMode">
-                    <span class="display">{{ currentDay.weight }}<span class="suffix">lbs</span></span>
+                    <span class="display">{{ currentDay.bf }}<span class="suffix">%</span></span>
                   </div>
 
                   <div class="input" ng-if="inputMode">
-                    <input type="text" class="form-control" id="weight" placeholder="Weight in lbs"  value="{{ currentDay.weight }}" ng-model="formData.weight">
+                    <input type="text" class="form-control" id="bf" placeholder="Body Fat as %" ng-model="formData.bf">
 
                   </div>
                 </div>
 
                 <div class="controls">
-                  <button type="submit" ng-if="inputMode && formData.weight"><i class="fa fa-floppy-o"></i></button>
+                  <button type="submit" ng-if="inputMode && formData.bf"><i class="fa fa-floppy-o"></i></button>
                   <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
                 </div>
 

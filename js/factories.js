@@ -1,4 +1,4 @@
-angular.module('factories', [])
+angular.module('factories', []);
 
 app.factory('FormFunctions', function($rootScope, $filter){
   var submit = function(item) {
