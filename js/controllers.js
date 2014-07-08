@@ -53,3 +53,27 @@ app.controller('HRController', function($rootScope, $scope, FormFunctions){
   };
 
 });
+
+app.controller('BPController', function($rootScope, $scope, FormFunctions){
+  $scope.inputMode = true;
+
+  if ($rootScope.currentDay.bps && $rootScope.currentDay.bpd) {
+    $scope.inputMode = false;
+  }
+  $scope.formData = {};
+  $scope.formData.bps = $rootScope.currentDay.bps;
+  $scope.formData.bpd = $rootScope.currentDay.bpd;
+
+  $scope.submit = FormFunctions.submit;
+
+  $scope.submitBoth = function(){
+    $scope.submit('bps', 0);
+    $scope.submit('bpd', 0);
+  };
+
+  //should be refactored into separate factory
+  $scope.edit = function(){
+    $scope.inputMode = true;
+  };
+
+});

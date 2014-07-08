@@ -57,9 +57,9 @@
 		  <div class="col-md-4">
 
         <!-- Weight Block -->
-        <div class="panel panel-default">
+        <div class="panel panel-default weight">
 
-            <div class="panel-heading weight">WEIGHT</div>
+            <div class="panel-heading">WEIGHT</div>
             <div class="panel-body">
 
               <!-- weight form -->
@@ -110,9 +110,9 @@
         </div><!-- end weight block -->
 
         <!-- Heart Block -->
-        <div class="panel panel-default">
+        <div class="panel panel-default heart">
 
-            <div class="panel-heading heart">HEART</div>
+            <div class="panel-heading">HEART</div>
             <div class="panel-body">
 
               <!-- heart rate form -->
@@ -137,6 +137,29 @@
 
               </form><!-- end heart rate form -->
 
+              <!-- blood pressure form -->
+              <form role="form" ng-controller="BPController" ng-submit='submitBoth()'>
+                <label for="bps">BP:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.bps }} / {{ currentDay.bpd }}<span class="suffix">mmHg</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="bps" placeholder="Systolic" ng-model="formData.bps">
+                    <input type="text" class="form-control" id="bpd" placeholder="Diastolic" ng-model="formData.bpd">
+
+                  </div>
+                </div>
+
+                <div class="controls">
+                  <button type="submit" ng-if="inputMode && formData.bps && formData.bpd"><i class="fa fa-floppy-o"></i></button>
+                  <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
+                </div>
+
+              </form><!-- end blood pressure form -->
+
             </div>
         </div><!-- end heart block -->
 
@@ -146,10 +169,10 @@
       <div class="col-md-4">
 
         <!-- Food Block -->
-        <div class="panel panel-default">
+        <div class="panel panel-default food">
           <form class="form-horizontal" role="form">
 
-            <div class="panel-heading food">FOOD
+            <div class="panel-heading">FOOD
               <!-- <div class="form-group control-buttons">
                   <button type="submit" class="btn btn-default btn-xs">Save</button>
               </div> -->
@@ -193,15 +216,15 @@
       <!-- Third Column -->
 		  <div class="col-md-4">
 
-        <div class="panel panel-default">
-          <div class="panel-heading exercise">EXERCISE</div>
+        <div class="panel panel-default exercise">
+          <div class="panel-heading">EXERCISE</div>
           <div class="panel-body">
             Coming Soon
           </div>
         </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading water">WATER</div>
+        <div class="panel panel-default water">
+          <div class="panel-heading">WATER</div>
           <div class="panel-body">
             Coming Soon
           </div>
