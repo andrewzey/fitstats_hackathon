@@ -35,3 +35,21 @@ app.controller('BFController', function($rootScope, $scope, FormFunctions){
   };
 
 });
+
+app.controller('HRController', function($rootScope, $scope, FormFunctions){
+  $scope.inputMode = true;
+
+  if ($rootScope.currentDay.hr) {
+    $scope.inputMode = false;
+  }
+  $scope.formData = {};
+  $scope.formData.hr = $rootScope.currentDay.hr;
+
+  $scope.submit = FormFunctions.submit;
+
+  //should be refactored into separate factory
+  $scope.edit = function(){
+    $scope.inputMode = true;
+  };
+
+});

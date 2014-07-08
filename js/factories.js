@@ -1,8 +1,8 @@
 angular.module('factories', []);
 
 app.factory('FormFunctions', function($rootScope, $filter){
-  var submit = function(item) {
-    $rootScope.currentDay[item] = $filter("number")(this.formData[item], 1);
+  var submit = function(item, decimals) {
+    $rootScope.currentDay[item] = $filter("number")(this.formData[item], decimals);
     this.inputMode = false;
   };
 
