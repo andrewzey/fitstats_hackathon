@@ -11,7 +11,7 @@ app.factory('FormFunctions', function($rootScope, $filter){
   // };
 
   return {
-    submit: submit
+    submit: submit,
     //, edit: edit
   };
 });

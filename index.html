@@ -199,7 +199,7 @@
                   </div>
 
                   <div class="input" ng-if="inputMode">
-                    <input type="text" class="form-control" id="protein" placeholder="Protein in grams" ng-model="formData.protein">
+                    <input type="text" class="form-control" id="protein" placeholder="Protein in grams" ng-model="formData.protein" ng-change="chartUpdate()">
                   </div>
                 </div>
 
@@ -211,7 +211,7 @@
                   </div>
 
                   <div class="input" ng-if="inputMode">
-                    <input type="text" class="form-control" id="protein" placeholder="Carbs in grams" ng-model="formData.carbs">
+                    <input type="text" class="form-control" id="protein" placeholder="Carbs in grams" ng-model="formData.carbs" ng-change="chartUpdate()">
                   </div>
                 </div>
 
@@ -223,7 +223,7 @@
                   </div>
 
                   <div class="input" ng-if="inputMode">
-                    <input type="text" class="form-control" id="fat" placeholder="Fat in grams" ng-model="formData.fat">
+                    <input type="text" class="form-control" id="fat" placeholder="Fat in grams" ng-model="formData.fat" ng-change="chartUpdate()">
                   </div>
                 </div>
 
@@ -232,22 +232,31 @@
                   <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
                 </div>
 
-                <div ng-controller="ExampleCtrl">
-                  <nvd3-line-chart
-                      data="exampleData"
-                      showXAxis="true"
-                      showYAxis="true"
-                      tooltips="true"
-                      interactive="true">
-                  </nvd3-line-chart>
+              <!-- ng-if="formData.calories && formData.protein && formData.carbs && formData.fat" -->
 
+              <div>
+                <nvd3-pie-chart
+                  data="macroNutrientData"
+                  id="macroNutrient"
+                  margin="{left:0,top:0,bottom:0,right:0}"
+                  height="275"
+                  x="xFunction()"
+                  y="yFunction()"
+                  showLabels="true"
+                  color="colorFunction()">
+                  <svg></svg>
+                </nvd3-pie-chart>
               </div>
 
               </form><!-- end food form -->
 
+
+
             </div>
 
         </div><!-- end food block -->
+
+
 
       </div><!-- end second column -->
 

@@ -9,8 +9,8 @@ app.controller('Main', function($rootScope){
 	// $rootScope.currentDay.hr = 65;
 	// $rootScope.currentDay.bps = 120;
 	// $rootScope.currentDay.bpd = 75;
-	// $rootScope.currentDay.calories = 2400;
-	// $rootScope.currentDay.protein = 165;
-	// $rootScope.currentDay.carbs = 240;
-	// $rootScope.currentDay.fat = 8;
+	$rootScope.currentDay.calories = 2400;
+	$rootScope.currentDay.protein = 165;
+	$rootScope.currentDay.carbs = 240;
+	$rootScope.currentDay.fat = 80;
 });
