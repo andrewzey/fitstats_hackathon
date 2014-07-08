@@ -50,6 +50,7 @@
 
 .data-display-and-input span.suffix {
   font-size: 0.5em;
+  padding-left: 4px;
 }
 
 .panel .form-control {

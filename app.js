@@ -4,7 +4,7 @@ app.controller('Main', function($rootScope){
 	//Dummy Data before populating firebase
 	$rootScope.currentDay = {};
 	$rootScope.currentDay.date = new Date();
-	// $rootScope.currentDay.weight = 165.5;
+	$rootScope.currentDay.weight = 165.5;
 	// $rootScope.currentDay.bf = 13.2;
 	$rootScope.currentDay.hr = 65;
 	$rootScope.currentDay.bps = 120;
@@ -22,15 +22,14 @@ app.controller('WeightController', function($rootScope, $scope, $filter){
 		$scope.inputMode = false;
 	}
 	$scope.formData = {};
+	$scope.formData.weight = $rootScope.currentDay.weight;
 	$scope.submit = function(){
 		$rootScope.currentDay.weight = $filter("number")($scope.formData.weight, 1);
-		$rootScope.currentDay.bf = $filter("number")($scope.formData.bf, 1);
 		$scope.inputMode = false;
 	};
 
 	$scope.edit = function(){
 		$scope.inputMode = true;
 	};
-
 
 });

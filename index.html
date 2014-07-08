@@ -72,6 +72,28 @@
                   </div>
 
                   <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="weight" placeholder="Weight in lbs" ng-model="formData.weight">
+
+                  </div>
+                </div>
+
+                <div class="controls">
+                  <button type="submit" ng-if="inputMode && formData.weight"><i class="fa fa-floppy-o"></i></button>
+                  <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
+                </div>
+
+              </form><!-- end weight form -->
+
+              <!-- body fat form -->
+              <form role="form" ng-controller="WeightController" ng-submit='submit()'>
+                <label for="weight">Weight:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.weight }}<span class="suffix">lbs</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
                     <input type="text" class="form-control" id="weight" placeholder="Weight in lbs"  value="{{ currentDay.weight }}" ng-model="formData.weight">
 
                   </div>
@@ -82,45 +104,9 @@
                   <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
                 </div>
 
-              </form>
-
-              <form role="form">
-                <label for="bodyfat">Body Fat:</label>
-                <input type="text" class="form-control" id="bodyfat" placeholder="Body Fat in %" ng-model="formData.bf">
-                <button type="submit" ng-if="formData.bf"><i class="fa fa-floppy-o"></i></button>
-              </form>
-
-            <!-- <form class="form-horizontal" role="form" ng-submit='submit()'>
-              <div class="form-group" style="line-height: 2em;">
-                <label for="weight" class="col-sm-4 control-label">Weight:</label>
-
-                <div class="col-sm-8" ng-if="!currentDay.weight">
-                  <input type="text" class="form-control" id="weight" placeholder="Weight in lbs" ng-model="formData.weight">
-                  <i class="fa fa-check"></i>
-                </div>
-
-                <div class="col-sm-8" ng-if="currentDay.weight">
-                  <span class="display">{{ currentDay.weight }}</span><span class="suffix">lbs</span>
-                  <i class="fa fa-pencil edit"></i>
-                  <i class="fa fa-trash-o delete"></i>
-                </div>
-              </div>
-            </form> -->
-
-              <!-- <div class="form-group" style="line-height: 2em;">
-                <label for="bodyfat" class="col-sm-4 control-label">Body Fat:</label>
-
-                <div class="col-sm-8" ng-if="!currentDay.bf">
-                  <input type="text" class="form-control" id="bodyfat" placeholder="Body Fat %" ng-model="formData.bf">
-                </div>
-
-                <div class="col-sm-8" ng-if="currentDay.bf">
-                  <span class="display">{{ currentDay.bf }}</span><span class="suffix">%</span>
-                </div>
-              </div> -->
+              </form><!-- end body fat form -->
 
             </div>
-
 
         </div><!-- end weight block -->
 
