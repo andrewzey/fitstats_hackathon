@@ -170,44 +170,69 @@
 
         <!-- Food Block -->
         <div class="panel panel-default food">
-          <form class="form-horizontal" role="form">
 
-            <div class="panel-heading">FOOD
-              <!-- <div class="form-group control-buttons">
-                  <button type="submit" class="btn btn-default btn-xs">Save</button>
-              </div> -->
-            </div>
+            <div class="panel-heading">FOOD</div>
 
             <div class="panel-body">
 
-              <div class="form-group">
-                <label for="calories" class="col-sm-3 control-label">Calories:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="calories" placeholder="Calories">
+              <!-- Food form -->
+              <form role="form" ng-controller="FoodController" ng-submit='submitAll()'>
+                <label for="calories">Calories:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.calories }}<span class="suffix">kcal</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="calories" placeholder="Calories" ng-model="formData.calories">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="protein" class="col-sm-3 control-label">Protein:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="protein" placeholder="Protein in grams">
+
+                <label for="protein">Protein:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.protein }}<span class="suffix">g</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="protein" placeholder="Protein in grams" ng-model="formData.protein">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="carbs" class="col-sm-3 control-label">Carbs:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="carbs" placeholder="Carbs in grams">
+
+                <label for="carbs">Carbs:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.carbs }}<span class="suffix">g</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="protein" placeholder="Carbs in grams" ng-model="formData.carbs">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="fat" class="col-sm-3 control-label">Fat:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="fat" placeholder="Fat in grams">
+
+                <label for="fat">Fat:</label>
+
+                <div class="data-display-and-input">
+                  <div class="display" ng-if="!inputMode">
+                    <span class="display">{{ currentDay.fat }}<span class="suffix">g</span></span>
+                  </div>
+
+                  <div class="input" ng-if="inputMode">
+                    <input type="text" class="form-control" id="fat" placeholder="Fat in grams" ng-model="formData.fat">
+                  </div>
                 </div>
-              </div>
+
+                <div class="controls">
+                  <button type="submit" ng-if="inputMode && formData.calories && formData.protein && formData.carbs && formData.fat"><i class="fa fa-floppy-o"></i></button>
+                  <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
+                </div>
+
+              </form><!-- end food form -->
 
             </div>
-
-          </form>
 
         </div><!-- end food block -->
 
