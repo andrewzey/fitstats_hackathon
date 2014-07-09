@@ -5,7 +5,7 @@
     <div class="col-md-offset-3 col-md-6">
       <i class="fa fa-chevron-left"></i>
       <h2>TODAY</h2>
-      <h4>{{ currentDay.date | date: 'MMMM d, yyyy' }}</h4>
+      <h4>{{ date | date: 'MMMM d, yyyy' }}</h4>
       <i class="fa fa-chevron-right"></i>
     </div>
   </div><!-- end day selector -->
@@ -21,12 +21,12 @@
           <div class="panel-body">
 
             <!-- weight form -->
-            <form role="form" ng-controller="WeightController" ng-submit='submit("weight", 1)'>
+            <form role="form" ng-controller="WeightController" ng-submit='submit(formData.weight, "weight", 1)'>
               <label for="weight">Weight:</label>
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.weight }}<span class="suffix">lbs</span></span>
+                  <span class="display">{{ today.weight }}<span class="suffix">lbs</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -42,12 +42,12 @@
             </form><!-- end weight form -->
 
             <!-- body fat form -->
-            <form role="form" ng-controller="BFController" ng-submit='submit("bf", 1)'>
+            <form role="form" ng-controller="BFController" ng-submit='submit(formData.bf, "bf", 1)'>
               <label for="bf">Body Fat:</label>
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.bf }}<span class="suffix">%</span></span>
+                  <span class="display">{{ today.bf }}<span class="suffix">%</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -61,7 +61,8 @@
                 <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
               </div>
 
-            </form><!-- end body fat form -->
+            </form>
+            <!-- end body fat form -->
 
           </div>
 
@@ -74,12 +75,12 @@
           <div class="panel-body">
 
             <!-- heart rate form -->
-            <form role="form" ng-controller="HRController" ng-submit='submit("hr", 0)'>
+            <form role="form" ng-controller="HRController" ng-submit='submit(formData.hr, "hr", 0)'>
               <label for="hr">Resting HR:</label>
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.hr }}<span class="suffix">bpm</span></span>
+                  <span class="display">{{ today.hr }}<span class="suffix">bpm</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -93,7 +94,7 @@
                 <button><i class="fa fa-pencil edit" ng-if="!inputMode" ng-click="edit()"></i></button>
               </div>
 
-            </form><!-- end heart rate form -->
+            </form><!-- end heart rate form
 
             <!-- blood pressure form -->
             <form role="form" ng-controller="BPController" ng-submit='submitBoth()'>
@@ -101,7 +102,7 @@
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.bps }} / {{ currentDay.bpd }}<span class="suffix">mmHg</span></span>
+                  <span class="display">{{ today.bps }} / {{ today.bpd }}<span class="suffix">mmHg</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -119,11 +120,12 @@
             </form><!-- end blood pressure form -->
 
           </div>
-      </div><!-- end heart block -->
+      </div>
+      <!-- end heart block -->
 
     </div><!-- end first column -->
 
-    <!--Second Column -->
+    <!-- Second Column -->
     <div class="col-md-4">
 
       <!-- Food Block -->
@@ -139,7 +141,7 @@
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.calories }}<span class="suffix">kcal</span></span>
+                  <span class="display">{{ today.calories }}<span class="suffix">kcal</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -151,7 +153,7 @@
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.protein }}<span class="suffix">g</span></span>
+                  <span class="display">{{ today.protein }}<span class="suffix">g</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -163,7 +165,7 @@
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.carbs }}<span class="suffix">g</span></span>
+                  <span class="display">{{ today.carbs }}<span class="suffix">g</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -175,7 +177,7 @@
 
               <div class="data-display-and-input">
                 <div class="display" ng-if="!inputMode">
-                  <span class="display">{{ currentDay.fat }}<span class="suffix">g</span></span>
+                  <span class="display">{{ today.fat }}<span class="suffix">g</span></span>
                 </div>
 
                 <div class="input" ng-if="inputMode">
@@ -202,7 +204,7 @@
               </nvd3-pie-chart>
             </div>
 
-            </form><!-- end food form -->
+          </form><!-- end food form -->
 
 
 
@@ -212,7 +214,7 @@
 
 
 
-    </div><!-- end second column -->
+    </div><!-- end second column
 
     <!-- Third Column -->
     <div class="col-md-4">

@@ -1,17 +1,19 @@
 angular.module('factories', []);
 
-app.factory('FormFunctions', function($rootScope, $filter){
-  var submit = function(item, decimals) {
-    $rootScope.currentDay[item] = $filter("number")(this.formData[item], decimals);
+app.factory('FormFunctions', function($filter){
+  var submit = function(formData, field, decimals) {
+    var data = $filter("number")(formData, decimals);
+    this.today.$child(field).$set(data);
     this.inputMode = false;
   };
 
-  //for later refactor, put edit function
-  // var edit = function(){
-  // };
+  //fore some reason this doesn't work
+  var edit = function(){
+    this.inputMode = true;
+  };
 
   return {
     submit: submit,
-    //, edit: edit
+    edit: edit
   };
 });

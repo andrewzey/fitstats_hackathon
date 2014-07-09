@@ -11,7 +11,8 @@ var app = angular.module('myApp', [
 	'myApp.directives',
 	'myApp.controllers',
   'simpleLoginTools',
-  'routeSecurity'
+  'routeSecurity',
+	'firebase'
 ])
 
 .run(['loginService', '$rootScope', 'FBURL', function(loginService, $rootScope, FBURL) {
