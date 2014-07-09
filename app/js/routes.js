@@ -11,13 +11,15 @@ angular.module('myApp.routes', ['ngRoute'])
       $routeProvider.when('/dashboard', {
         authRequired: true, // must authenticate before viewing this page
          templateUrl: 'partials/dashboard.html',
-         controller: 'Main'
+         controller: 'Main',
+         resolve: { loadUser:  function(userFb) { return userFb.promiseToHaveUser(); }
+        }
       });
 
       $routeProvider.when('/account', {
          authRequired: true, // must authenticate before viewing this page
          templateUrl: 'partials/account.html',
-         controller: 'AccountCtrl'
+         controller: 'AccountCtrl',
       });
 
       $routeProvider.when('/login', {

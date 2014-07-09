@@ -6,14 +6,17 @@ app.controller('NavController', function($scope, loginService){
   };
 });
 
-app.controller('Main', function($rootScope, $scope, $filter, syncData, $location){
+app.controller('Main', function($rootScope, $scope, $filter, syncData, userFb, $location){
   //user $location.path to set date
     //if location.path is "today", then take new Date() converted to YYYYMMDD
   $scope.date = new Date();
   $scope.fbDate = $filter("date")($scope.date, 'yyyyMMdd');
 
   $scope.userId = $scope.auth.user.uid;
-  $scope.today = syncData('users/' + $scope.userId + '/dates/' + $scope.fbDate);
+  $scope.user = userFb.user;
+  $scope.preload = $scope.user.dates[$scope.fbDate];
+  $scope.today.$child(field).$set(data);
+  console.log($scope.user.dates[$scope.fbDate]);
 
   //Dummy Data before populating firebase
   // $rootScope.currentDay.bf = 13.2;
@@ -29,6 +32,7 @@ app.controller('Main', function($rootScope, $scope, $filter, syncData, $location
 app.controller('WeightController', function($rootScope, $scope, FormFunctions){
   $scope.inputMode = false;
   $scope.formData = {};
+  $scope.formData.weight = $scope.preload.weight;
 
   $scope.submit = FormFunctions.submit;
 

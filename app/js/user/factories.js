@@ -17,3 +17,24 @@ app.factory('FormFunctions', function($filter){
     edit: edit
   };
 });
+
+app.factory('userFb', function($rootScope, $firebase, $q) {
+  return {
+    user: null,
+    promiseToHaveUser: function() {
+      var deferred = $q.defer();
+
+      if (this.user === null) {
+        this.user = $firebase(new Firebase('https://fitstats.firebaseio.com/users/' + 'simplelogin:1'));
+        this.user.$on('loaded', function(loadedData) {
+          deferred.resolve();
+        });
+      }
+      else {
+        deferred.resolve();
+      }
+
+      return deferred.promise;
+    }
+  };
+});
