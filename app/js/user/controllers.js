@@ -15,8 +15,8 @@ app.controller('Main', function($rootScope, $scope, $filter, syncData, userFb, $
   $scope.userId = $scope.auth.user.uid;
   $scope.user = userFb.user;
   $scope.preload = $scope.user.dates[$scope.fbDate];
-  $scope.today.$child(field).$set(data);
-  console.log($scope.user.dates[$scope.fbDate]);
+
+  $scope.today = syncData('users/' + $scope.userId + '/dates/' + $scope.fbDate);
 
   //Dummy Data before populating firebase
   // $rootScope.currentDay.bf = 13.2;
