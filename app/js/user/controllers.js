@@ -61,6 +61,7 @@ app.controller('BFController', function($rootScope, $scope, FormFunctions){
 app.controller('HRController', function($rootScope, $scope, FormFunctions){
   $scope.inputMode = false;
   $scope.formData = {};
+  $scope.formData.hr = $scope.preload.hr;
 
   $scope.submit = FormFunctions.submit;
 
@@ -73,6 +74,8 @@ app.controller('HRController', function($rootScope, $scope, FormFunctions){
 app.controller('BPController', function($rootScope, $scope, FormFunctions){
   $scope.inputMode = false;
   $scope.formData = {};
+  $scope.formData.bps = $scope.preload.bps;
+  $scope.formData.bpd = $scope.preload.bpd;
 
   $scope.submit = FormFunctions.submit;
 
@@ -82,7 +85,7 @@ app.controller('BPController', function($rootScope, $scope, FormFunctions){
   };
 
   $scope.submitBoth = function(){
-    $scope.submit($scope.formData.bps, 'bps', 0);
+    $scope.submit($scope.formData.bps, "bps", 0);
     $scope.submit($scope.formData.bpd, 'bpd', 0);
   };
 
