@@ -19,16 +19,6 @@ app.controller('Main', function($rootScope, $scope, $filter, syncData, userFb, $
   $scope.preload = $scope.user.dates[$scope.fbDate];
 
   $scope.today = syncData('users/' + $scope.userId + '/dates/' + $scope.fbDate);
-
-  //Dummy Data before populating firebase
-  // $rootScope.currentDay.bf = 13.2;
-  // $rootScope.currentDay.hr = 65;
-  // $rootScope.currentDay.bps = 120;
-  // $rootScope.currentDay.bpd = 75;
-  // $rootScope.currentDay.calories = 2400;
-  // $rootScope.currentDay.protein = 165;
-  // $rootScope.currentDay.carbs = 240;
-  // $rootScope.currentDay.fat = 80;
 });
 
 app.controller('WeightController', function($rootScope, $scope, FormFunctions){
@@ -94,6 +84,12 @@ app.controller('BPController', function($rootScope, $scope, FormFunctions){
 app.controller('FoodController', function($rootScope, $scope, $timeout, FormFunctions){
   $scope.inputMode = false;
   $scope.formData = {};
+  $scope.formData.calories = $scope.preload.calories;
+  $scope.formData.protein = $scope.preload.protein;
+  $scope.formData.carbs = $scope.preload.carbs;
+  $scope.formData.fat = $scope.preload.fat;
+
+  console.log($scope.preload);
 
   $scope.submit = FormFunctions.submit;
 
@@ -101,8 +97,6 @@ app.controller('FoodController', function($rootScope, $scope, $timeout, FormFunc
   $scope.edit = function(){
     $scope.inputMode = true;
   };
-
-  $scope.formData = {};
 
   $scope.submit = FormFunctions.submit;
 
