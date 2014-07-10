@@ -9,8 +9,10 @@ app.controller('NavController', function($scope, loginService){
 app.controller('Main', function($rootScope, $scope, $filter, syncData, userFb, $location){
   //user $location.path to set date
     //if location.path is "today", then take new Date() converted to YYYYMMDD
-  $scope.date = new Date();
-  $scope.fbDate = $filter("date")($scope.date, 'yyyyMMdd');
+  
+  // $scope.date = new Date();
+  // $scope.fbDate = $filter("date")($scope.date, 'yyyyMMdd');
+  $scope.fbDate = 20140708;
 
   $scope.userId = $scope.auth.user.uid;
   $scope.user = userFb.user;
@@ -46,6 +48,7 @@ app.controller('WeightController', function($rootScope, $scope, FormFunctions){
 app.controller('BFController', function($rootScope, $scope, FormFunctions){
   $scope.inputMode = false;
   $scope.formData = {};
+  $scope.formData.bf = $scope.preload.bf;
 
   $scope.submit = FormFunctions.submit;
 
